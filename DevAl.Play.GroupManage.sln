@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D869B943-9348-48EF-B865-CC8E0C8B2B50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevAl.Play.GroupManage.Web", "src\DevAl.Play.GroupManage.Web\DevAl.Play.GroupManage.Web.csproj", "{B6C65B83-4224-4890-AF29-672669CBBE18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevAl.Play.GroupManage.Web", "src\DevAl.Play.GroupManage.Web\DevAl.Play.GroupManage.Web.csproj", "{B6C65B83-4224-4890-AF29-672669CBBE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevAl.Play.GroupManage.Business", "src\DevAl.Play.GroupManage.Business\DevAl.Play.GroupManage.Business.csproj", "{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevAl.Play.GroupManage.BusinessImpl", "src\DevAl.Play.GroupManage.BusinessImpl\DevAl.Play.GroupManage.BusinessImpl.csproj", "{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B6C65B83-4224-4890-AF29-672669CBBE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,8 +33,40 @@ Global
 		{B6C65B83-4224-4890-AF29-672669CBBE18}.Release|x64.Build.0 = Release|Any CPU
 		{B6C65B83-4224-4890-AF29-672669CBBE18}.Release|x86.ActiveCfg = Release|Any CPU
 		{B6C65B83-4224-4890-AF29-672669CBBE18}.Release|x86.Build.0 = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|x64.Build.0 = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E}.Release|x86.Build.0 = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|x64.Build.0 = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Debug|x86.Build.0 = Debug|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|x64.ActiveCfg = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|x64.Build.0 = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|x86.ActiveCfg = Release|Any CPU
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6C65B83-4224-4890-AF29-672669CBBE18} = {D869B943-9348-48EF-B865-CC8E0C8B2B50}
+		{EC8BB8DE-120D-4872-8831-C604F8D1BA5E} = {D869B943-9348-48EF-B865-CC8E0C8B2B50}
+		{6375E6C2-AE04-4CCD-BE81-9B4F6CE0C500} = {D869B943-9348-48EF-B865-CC8E0C8B2B50}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D28051B-EDB5-46F0-BB79-3E366DDFD1A6}
 	EndGlobalSection
 EndGlobal

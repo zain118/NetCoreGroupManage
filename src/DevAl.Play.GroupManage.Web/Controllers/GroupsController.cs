@@ -1,29 +1,36 @@
-﻿using DevAl.Play.GroupManage.Web.Models;
+﻿using DevAl.Play.GroupManage.Business.Services;
+using DevAl.Play.GroupManage.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevAl.Play.GroupManage.Web.Mappings;
 
 namespace DevAl.Play.GroupManage.Web.Controllers
 {
     [Route("Groups")]
     public class GroupsController : Controller
     {
-       static List<GroupViewModel> groups = new List<GroupViewModel> { new GroupViewModel { Id = 1, Name = "Man UTD" } };
+        private readonly IGroupServices _groupService;
+
+        public GroupsController(IGroupServices groupService)
+        {
+            _groupService = groupService;
+        }
         [Route("/")]
         [HttpGet]
         public IActionResult Index()
         {
-            return View(groups);
+            return View(_groupService.GetAllGroups().ToViewModelCollection());
         }
 
         [HttpGet]
         [Route("/Details")]
         public IActionResult Details(int id)
         {
-            GroupViewModel group = groups.SingleOrDefault(r => r.Id == id);
+            GroupViewModel group = _groupService.GetGroupById(id).ToViewModel();
             return View(group);
         }
 
@@ -32,8 +39,8 @@ namespace DevAl.Play.GroupManage.Web.Controllers
         [HttpGet]
         public IActionResult Add(int id)
         {
-            GroupViewModel group = groups.SingleOrDefault(r => r.Id == id);
-            if(group != null)
+            GroupViewModel group = _groupService.GetGroupById(id).ToViewModel();
+            if (group != null)
             {
                 ViewBag.Title = "Edit";
                 return View(group);
@@ -50,9 +57,10 @@ namespace DevAl.Play.GroupManage.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(GroupViewModel group)
         {
-            GroupViewModel g = groups.Skip(groups.Count - 1).LastOrDefault();
-            group.Id = g == null ? 1 : g.Id + 1;
-            groups.Add(group);
+            _groupService.AddGroup(group.ToGroup());
+            //GroupViewModel g = groups.Skip(groups.Count - 1).LastOrDefault();
+            //group.Id = g == null ? 1 : g.Id + 1;
+            //groups.Add(group);
             return RedirectToAction("Index");
         }
 
@@ -61,7 +69,7 @@ namespace DevAl.Play.GroupManage.Web.Controllers
         [Route("/Edit")]
         public IActionResult Edit(GroupViewModel group)
         {
-            groups.FirstOrDefault(r => r.Id == group.Id).Name = group.Name;
+            _groupService.EditGroup(group.ToGroup());
             return RedirectToAction("Index");
         }
 
@@ -69,7 +77,7 @@ namespace DevAl.Play.GroupManage.Web.Controllers
         [Route("/Remove")]
         public IActionResult Remove(int id)
         {
-            groups.Remove(groups.FirstOrDefault(r => r.Id == id));
+            _groupService.DelGroup(id);
             return RedirectToAction("Index");
         }
     }
