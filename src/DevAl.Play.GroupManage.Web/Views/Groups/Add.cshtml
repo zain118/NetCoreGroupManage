@@ -1,0 +1,30 @@
+﻿@model GroupViewModel
+<div>@ViewBag.Title</div>
+@{ 
+    var action = ViewBag.Title;
+}
+<div class="Body">
+    <form asp-antiforgery="true" asp-controller="Groups" asp-action="@action" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="AddBlogTitle">
+            <label>@ViewBag.Title a Group</label>
+        </div>
+        <div class="FormControl">
+            <label>Name</label>
+            <input asp-for="Name" />
+        </div>
+        @*<div class="FormControl">
+                <label>Body</label>
+                <input asp-for="Body" />
+            </div>
+            <div class="FormControl">
+                <label>Image</label>
+                <input asp-for="Image" />
+            </div>*@
+        <div class="SubmitControl">
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

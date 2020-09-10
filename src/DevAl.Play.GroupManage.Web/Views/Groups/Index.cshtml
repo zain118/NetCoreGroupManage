@@ -1,0 +1,28 @@
+﻿@model IEnumerable<GroupViewModel>
+<div>
+    <div class="mainImage">
+        <span class="Title">Play</span> <a asp-action="Add" asp-controller="Groups" >Add New Group</a>
+    </div>
+    <table>
+        <tr>
+            <th>Title</th>
+            @*<th>Body</th>
+            <th>Created</th>*@
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var group in Model)
+        {
+    <tr>
+        <td><a asp-action="Details" asp-controller="Groups" asp-route-id="@group.Id">@group.Name</a></td>
+        <td>@group.Id</td>
+        @*<td>@post.Created</td>*@
+        <td><a asp-action="Add" asp-controller="Groups" asp-route-id="@group.Id" class="link">Edit</a></td>
+        <td><a asp-action="Remove" asp-controller="Groups" asp-route-id="@group.Id" class="link">Remove</a></td>
+    </tr>
+        }
+
+
+    </table>
+</div>
+
