@@ -1,14 +1,15 @@
 ﻿using DevAl.Play.GroupManage.Business.Models;
+using DevAl.Play.GroupManage.Business.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DevAl.Play.GroupManage.Business.Services
+namespace DevAl.Play.GroupManage.BusinessImpl.Services
 {
-    class GroupService : IGroupServices
+    public class GroupService : IGroupServices
     {
-        static List<Group> groups = new List<Group> { new Group { Id = 1, Name = "Man UTD" } };
+        static readonly List<Group> groups = new List<Group> { new Group { Id = 1, Name = "Man UTD" } };
         public bool AddGroup(Group group)
         {
             Group g = groups.Skip(groups.Count - 1).LastOrDefault();

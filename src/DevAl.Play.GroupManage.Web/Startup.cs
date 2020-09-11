@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using DevAl.Play.GroupManage.Business.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DevAl.Play.GroupManage.Web.IOC;
+
 namespace DevAl.Play.GroupManage.Web
 {
     public class Startup
@@ -19,7 +17,8 @@ namespace DevAl.Play.GroupManage.Web
             services.AddMvc(options => { 
             options.EnableEndpointRouting = false;
             });
-            services.AddTransient<IGroupServices,GroupService>();
+
+            services.AddBusiness();
         }
  
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

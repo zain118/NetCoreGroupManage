@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevAl.Play.GroupManage.BusinessImpl\DevAl.Play.GroupManage.BusinessImpl.csproj" />
-    <ProjectReference Include="..\DevAl.Play.GroupManage.Business\DevAl.Play.GroupManage.Business.csproj" />
   </ItemGroup>
 
 </Project>
