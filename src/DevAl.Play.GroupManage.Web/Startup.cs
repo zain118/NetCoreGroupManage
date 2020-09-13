@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DevAl.Play.GroupManage.Web.IOC;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using System;
 
 namespace DevAl.Play.GroupManage.Web
 {
@@ -18,11 +21,20 @@ namespace DevAl.Play.GroupManage.Web
             options.EnableEndpointRouting = false;
             });
 
-            services.AddBusiness();
+            //If required to use inbuilt DI then uncomment below:
+            //services.AddBusiness();
         }
- 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /// <summary>
+        /// This is to register AutoFac module in 3.1 Core
+        /// </summary>
+        /// <param name="containerBuilder"></param>
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule<AutofacModule>();
+        }
+
+            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
